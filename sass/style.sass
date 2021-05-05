@@ -1,0 +1,444 @@
+@import "vars"
+@import "fonts"
+@import "libs"
+
+
+html
+	margin-left: calc(100vw - 100%)
+	margin-right: 0
+	scroll-behavior: smooth
+
+body
+	font-size: 16px
+	min-width: 320px
+	position: relative
+	line-height: 1.6
+	font-family: $default-font
+	overflow-x: hidden
+	font-weight: 300
+	color: $text
+	// text-align: center
+	scroll-behavior: smooth
+	// background: linear-gradient(#fdfbec, #fffff4);
+a
+	color: $accent
+	font-weight: bold
+	text-decoration: none
+	transition: all .4s ease
+	&:hover
+		color: $text
+		text-decoration: none
+	@media screen and (min-width: 992px)
+		&:hover
+			text-decoration: none
+			color: $accent
+img
+	display: block
+	max-width: 100%
+	height: auto
+
+b, strong
+	font-weight: bold
+
+.visually-hidden
+	position: absolute
+	clip: rect(0 0 0 0)
+	width: 1px
+	height: 1px
+	margin: -1px
+
+main
+	+media-breakpoint-down(xs)
+		flex: 1 0 auto
+
+header
+	+media-breakpoint-down(xs)
+		flex: 0 0 auto
+
+.wrapper
+	max-width: 600px
+	width: 100%
+	padding: 0 15px
+	margin: 0 auto
+	position: relative
+	+media-breakpoint-down(xs)
+		display: flex
+		flex-direction: column
+
+.bottom-mobile
+	+media-breakpoint-down(xs)
+		flex: 0 0 auto
+
+h2, h3
+	font-weight: 500
+
+h2
+	font-size: 20px
+	text-transform: uppercase
+	span
+		font-weight: 700
+		color: #b6000d
+
+.logo
+	img, svg
+		margin: 20px 10px
+
+.social
+	&__list
+		padding: 20px 0
+		display: flex
+		justify-content: center
+		align-items: center
+		flex-wrap: wrap
+
+	&__link
+		background-color: transparent
+		color: $accent
+		display: flex
+		align-items: center
+		font-weight: 500
+		text-transform: uppercase
+		font-size: 14px
+		padding: 10px 10px
+		margin: 1%
+		border-radius: 50px
+		border: 2px solid $accent
+		> span
+			display: none
+
+		&:hover
+			color: #fff
+			background-color: $accent
+			svg
+				fill: #fff
+		svg
+			width: 29px
+			height: 100%
+			transition: all .4s
+		&--vk
+			border-color: $vk
+			color: $vk
+			svg
+				fill: $vk
+			&:hover
+				background-color: $vk
+				color: #fff
+		&--od
+			border-color: $od
+			color: $od
+			svg
+				fill: $od
+			&:hover
+				background-color: $od
+				color: #fff
+		&--fb
+			border-color: $fb
+			color: $fb
+			svg
+				fill: $fb
+			&:hover
+				background-color: $fb
+				color: #fff
+		&--youtube
+			border-color: $youtube
+			color: $youtube
+			svg
+				fill: $youtube
+			&:hover
+				background-color: $youtube
+				color: #fff
+		&--tik
+			border-color: $tiktok
+			color: $tiktok
+			flex-basis: 56px
+			&:hover
+				background-color: $tiktok
+				color: #fff
+		&--inst
+			border: none
+			background: linear-gradient(45deg, #FFD521 0%, #F50000 37%, #B900B4 65%, #00B9FF 100%)
+			color: #B900B4
+			position: relative
+			z-index: 1
+			&:before
+				content: ''
+				display: block
+				position: absolute
+				top: 2px
+				right: 2px
+				bottom: 2px
+				left: 2px
+				background-color: #fff
+				z-index: -1
+				border-radius: inherit
+				opacity: 1
+				transition: all .4s
+			svg
+				fill: url(#SVGID_1_)
+				transition: all .4s
+			&:hover
+				color: #fff
+				background: linear-gradient(45deg, #FFD521 0%, #F50000 37%, #B900B4 65%, #00B9FF 100%)
+				&:before
+					opacity: 0
+				svg
+					fill: #fff
+
+hr
+	opacity: 1
+	margin: 20px 0
+.mes__list
+	display: flex
+	align-items: center
+	justify-content: center
+	padding-bottom: 35px
+	a
+		width: 50px
+		height: 50px
+		svg
+			width: 50px
+			height: 50px
+		display: block
+		margin: 10px 5px
+		transform: scale(1)
+		&:hover
+			transform: scale(1.1)
+		+media-breakpoint-down(sm)
+			&.viber-pc
+				display: none
+		+media-breakpoint-up(md)
+			&.viber-mobile
+				display: none
+
+.add-review
+	position: relative
+	background-color: #fff
+	overflow: hidden
+	z-index: 1
+	+media-breakpoint-down(xs)
+		margin-left: -15px
+		margin-right: -15px
+	&__list
+		display: flex
+		align-items: center
+		justify-content: center
+	&__link
+		position: relative
+		margin: 0 1% 15px
+		text-align: center
+		display: inline-block
+		width: 53px
+		font-weight: 500
+		color: rgba(0,0,0,.5)
+		transition: all .3s ease
+		span
+			display: block
+			margin-top: 60px
+		&.active
+			color: rgba(0,0,0,.8)
+			.add-review__icon._active
+				opacity: 0
+				visibility: hidden
+			.add-review__icon._hover
+				opacity: 1
+				visibility: visible
+		@media screen and (min-width: 992px)
+			&:hover
+				color: rgba(0,0,0,.8)
+				.add-review__icon._active
+					opacity: 0
+					visibility: hidden
+				.add-review__icon._hover
+					opacity: 1
+					visibility: visible
+	&__icon
+		width: 53px
+		height: 53px
+		position: absolute
+		left: 0
+		top: 0
+		transition: all .5s ease
+		&._hover
+			opacity: 0
+			visibility: hidden
+
+.map
+	transition: all .5s
+	scroll-behavior: smooth
+
+.map-block
+	max-width: 600px
+	width: 100%
+	margin: 0 auto
+	transition: height .3s ease-out
+	overflow: hidden
+	position: relative
+	&:not(.active)
+		// display: none
+		height: 0
+	h3
+		margin-bottom: 20px
+	img
+		max-width: 100%
+		width: 100%
+
+.dealer-link
+	position: absolute
+	width: 25%
+	height: 20%
+	background-color: transparent
+	z-index: 1
+	&.samara
+		left: 18%
+		top: 70%
+		width: 20%
+	&.moscow
+		left: 38%
+		top: 34%
+	&.mexico
+		right: 14%
+		top: 11%
+		width: 20%
+
+.classified
+	margin-top: 20px
+	h2
+		font-weight: bold
+	&__list
+		display: flex
+		align-items: stretch
+		justify-content: space-between
+		margin: 20px 0
+	&__link
+		flex: 0 1 20%
+		position: relative
+		display: inline-block
+		padding-bottom: 3px
+		+media-breakpoint-down(xs)
+			flex: 0 1 26%
+		&:before
+			content: ''
+			display: inline-block
+			width: 70%
+			height: 2px
+			position: absolute
+			left: 50%
+			top: 100%
+			transform: translate(-50%, 5px)
+			background-color: $accent
+			filter: blur(1px)
+			border-radius: 50% / 100%
+			opacity: 0
+			transition: all .3s ease-out
+		&:hover, &.active
+			&:before
+				opacity: 1
+				transform: translate(-50%, 0)
+	&__icon
+		width: auto
+		height: 100%
+	&__sublist
+		padding: 20px 0
+		+media-breakpoint-down(xs)
+			padding-top: 0
+	&__sublink
+		width: 45%
+		text-align: center
+		display: inline-block
+		text-transform: uppercase
+		color: $text
+		opacity: 0.7
+		transition: opacity .3s ease
+		position: relative
+		+media-breakpoint-down(xs)
+			width: 47%
+			font-size: 15px
+		&:before
+			content: ''
+			display: inline-block
+			width: 30%
+			height: 2px
+			position: absolute
+			left: 50%
+			top: 100%
+			transform: translate(-50%, 5px)
+			background-color: $accent
+			filter: blur(1px)
+			border-radius: 50% / 100%
+			opacity: 0
+			transition: all .3s ease-out
+		&:hover, &.active
+			opacity: 1
+			color: $text
+			&:before
+				opacity: 1
+				transform: translate(-50%, 0)
+
+
+.loader
+	position: absolute
+	z-index: 9
+	top: -100%
+	left: 0
+	box-sizing: border-box
+	width: 100%
+	height: 100%
+	overflow: hidden
+	color: #000000
+	transition: opacity .7s ease
+	opacity: 0
+	background-color: rgba(0, 0, 0, .55)
+	&:after,
+	&:before
+		box-sizing: border-box
+	&.is-active
+		top: 0
+		opacity: 1
+	&-default:after
+		position: absolute
+		top: calc(50% - 24px)
+		left: calc(50% - 24px)
+		width: 48px
+		height: 48px
+		content: ''
+		-webkit-animation: rotation 1s linear infinite
+		animation: rotation 1s linear infinite
+		border: solid 8px #ffffff
+		border-left-color: transparent
+		border-radius: 50%
+
+#map
+	position: relative
+	z-index: 7
+	width: 100%
+	display: block
+	height: 100%
+	cursor: pointer
+	background-color: transparent
+
+@-webkit-keyframes rotation
+	from
+		transform: rotate(0)
+	to
+		transform: rotate(359deg)
+
+@keyframes rotation
+	from
+		transform: rotate(0)
+	to
+		transform: rotate(359deg)
+
+@-webkit-keyframes blink
+	from
+		opacity: .5
+	to
+		opacity: 1
+
+@keyframes blink
+	from
+		opacity: .5
+	to
+		opacity: 1
+
+
+
